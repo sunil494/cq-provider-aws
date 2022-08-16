@@ -178,7 +178,7 @@ func resolveIamPolicyTags(ctx context.Context, meta schema.ClientMeta, resource 
 	r := resource.Item.(types.Policy)
 	cl := meta.(*client.Client)
 	svc := cl.Services().IAM
-	response, err := svc.ListPolicyTags(ctx, &iam.ListPolicyTagsInput{PolicyArn: r.PolicyArn})
+	response, err := svc.ListPolicyTags(ctx, &iam.ListPolicyTagsInput{PolicyArn: r.Arn})
 	if err != nil {
 		if cl.IsNotFoundError(err) {
 			meta.Logger().Debug("ListPolicyTags: role does not exist", "err", err)

@@ -515,6 +515,26 @@ func (mr *MockIamClientMockRecorder) ListRoles(arg0, arg1 interface{}, arg2 ...i
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListRoles", reflect.TypeOf((*MockIamClient)(nil).ListRoles), varargs...)
 }
 
+// ListPolicyTags mocks base method.
+func (m *MockIamClient) ListPolicyTags(arg0 context.Context, arg1 *iam.ListPolicyTagsInput, arg2 ...func(*iam.Options)) (*iam.ListPolicyTagsOutput, error) {
+	m.ctrl.T.Helper()
+	varargs := []interface{}{arg0, arg1}
+	for _, a := range arg2 {
+		varargs = append(varargs, a)
+	}
+	ret := m.ctrl.Call(m, "ListPolicyTags", varargs...)
+	ret0, _ := ret[0].(*iam.ListPolicyTagsOutput)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// ListPolicyTags indicates an expected call of ListRoleTags.
+func (mr *MockIamClientMockRecorder) ListPolicyTags(arg0, arg1 interface{}, arg2 ...interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	varargs := append([]interface{}{arg0, arg1}, arg2...)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListPolicyTags", reflect.TypeOf((*MockIamClient)(nil).ListRoleTags), varargs...)
+}
+
 // ListSAMLProviders mocks base method.
 func (m *MockIamClient) ListSAMLProviders(arg0 context.Context, arg1 *iam.ListSAMLProvidersInput, arg2 ...func(*iam.Options)) (*iam.ListSAMLProvidersOutput, error) {
 	m.ctrl.T.Helper()
